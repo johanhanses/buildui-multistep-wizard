@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { ComponentPropsWithoutRef, useState } from 'react'
 
 export default function Page() {
   let [step, setStep] = useState(1)
@@ -44,11 +45,12 @@ export default function Page() {
   )
 }
 
-function Step({ step, currentStep }) {
-  let status = currentStep === step ? 'active' : currentStep < step ? 'inactive' : 'complete'
+function Step({ step, currentStep }: { step: number; currentStep: number }) {
+  const status = currentStep === step ? 'active' : currentStep < step ? 'inactive' : 'complete'
 
   return (
-    <div
+    <motion.div
+      animate={{ backgroundColor: status === 'complete' ? '#3b82f6' : '#fff' }}
       className={`${
         status === 'active'
           ? 'border-blue-500 bg-white text-blue-500'
@@ -60,11 +62,11 @@ function Step({ step, currentStep }) {
       <div className="flex items-center justify-center">
         {status === 'complete' ? <CheckIcon className="h-6 w-6 text-white" /> : <span>{step}</span>}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
-function CheckIcon(props) {
+function CheckIcon(props: ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
