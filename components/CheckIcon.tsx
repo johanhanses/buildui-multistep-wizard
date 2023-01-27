@@ -3,7 +3,13 @@ import { ComponentPropsWithoutRef } from 'react'
 
 export function CheckIcon(props: ComponentPropsWithoutRef<'svg'>) {
   return (
-    <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+    <svg
+      {...props}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={3}
+    >
       <motion.path
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
