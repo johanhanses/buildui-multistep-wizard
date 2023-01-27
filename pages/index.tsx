@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Step } from '../components/Step'
 
 export default function Page() {
-  let [step, setStep] = useState(1)
-
+  const [step, setStep] = useState(1)
+  console.log(step)
   return (
     <div className="flex min-h-screen items-start bg-gradient-to-br from-slate-700 to-slate-900 pt-40">
       <div className="mx-auto w-full max-w-md rounded-2xl bg-white">
@@ -37,15 +37,16 @@ export default function Page() {
 
           <div className="mt-10 flex justify-between">
             <button
+              disabled={step === 1}
               onClick={() => setStep(step < 2 ? step : step - 1)}
-              className="rounded px-2 py-1 text-slate-400 transition-colors duration-200 hover:text-slate-700"
+              className="rounded px-2 py-1 text-slate-400 transition-colors duration-200 hover:text-slate-700 disabled:cursor-not-allowed disabled:hover:text-slate-400"
             >
               Back
             </button>
             <button
               onClick={() => setStep(step > 4 ? step : step + 1)}
               className={`${
-                step > 4 ? 'pointer-events-none opacity-50' : ''
+                step > 4 ? 'cursor-not-allowed opacity-50' : ''
               } bg flex items-center justify-center rounded-full bg-blue-500 py-1.5 px-3.5 font-medium tracking-tight text-white transition-colors duration-200 hover:bg-blue-600 active:bg-blue-700`}
             >
               Continue
