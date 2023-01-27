@@ -3,7 +3,7 @@ import { Step } from '../components/Step'
 
 export default function Page() {
   const [step, setStep] = useState(1)
-  console.log(step)
+
   return (
     <div className="flex min-h-screen items-start bg-gradient-to-br from-slate-700 to-slate-900 pt-40">
       <div className="mx-auto w-full max-w-md rounded-2xl bg-white">
